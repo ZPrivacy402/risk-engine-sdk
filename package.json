@@ -1,0 +1,40 @@
+{
+  "name": "@zprivacy402/monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ZPrivacy402 Risk Engine SDK - Monorepo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZPrivacy402/risk-engine-sdk"
+  },
+  "author": "ZPrivacy402 Team <dev@zprivacy402.com>",
+  "license": "MIT",
+  "workspaces": [
+    "bindings/typescript",
+    "examples/*",
+    "docs"
+  ],
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "clean": "pnpm -r clean && cargo clean",
+    "build:rust": "cargo build --release",
+    "test:rust": "cargo test --all",
+    "bench:rust": "cargo bench",
+    "check": "cargo check --all",
+    "clippy": "cargo clippy --all -- -D warnings",
+    "fmt": "cargo fmt --all",
+    "dev": "pnpm -r --parallel dev"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}

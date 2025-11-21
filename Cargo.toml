@@ -1,0 +1,69 @@
+[workspace]
+members = [
+    "core/risk-engine",
+    "core/zk-prover",
+    "core/shared",
+    "bindings/rust",
+    "prover-services",
+]
+resolver = "2"
+
+[workspace.package]
+version = "1.0.0"
+edition = "2021"
+authors = ["ZPrivacy402 Team <dev@zprivacy402.com>"]
+license = "MIT"
+repository = "https://github.com/ZPrivacy402/risk-engine-sdk"
+homepage = "https://zprivacy402.com"
+documentation = "https://zprivacy402.com/docs"
+
+[workspace.dependencies]
+# Core dependencies
+tokio = { version = "1.40", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "1.0"
+anyhow = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Async runtime
+async-trait = "0.1"
+futures = "0.3"
+
+# Cryptography
+sha2 = "0.10"
+blake3 = "1.5"
+
+# zk-STARK dependencies
+winterfell = "0.9"
+math = { package = "winter-math", version = "0.9" }
+crypto = { package = "winter-crypto", version = "0.9" }
+air = { package = "winter-air", version = "0.9" }
+
+# Solana integration
+solana-sdk = "1.18"
+solana-client = "1.18"
+anchor-lang = "0.30"
+anchor-spl = "0.30"
+
+# Database & storage
+sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "postgres"] }
+redis = { version = "0.24", features = ["tokio-comp", "connection-manager"] }
+
+# Observability
+prometheus = "0.13"
+opentelemetry = "0.21"
+
+# Testing
+proptest = "1.4"
+criterion = "0.5"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+
+[profile.bench]
+inherits = "release"

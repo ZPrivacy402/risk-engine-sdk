@@ -1,0 +1,53 @@
+[package]
+name = "zprivacy402-risk-engine"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "Core risk assessment engine for ZPrivacy402 with TRUSTLINE framework"
+
+[dependencies]
+# Workspace dependencies
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+async-trait = { workspace = true }
+futures = { workspace = true }
+
+# Cryptography
+sha2 = { workspace = true }
+blake3 = { workspace = true }
+
+# HTTP client for API calls
+reqwest = { version = "0.11", features = ["json"] }
+
+# Time handling
+chrono = "0.4"
+
+# Regular expressions for pattern matching
+regex = "1.10"
+
+# URL parsing
+url = "2.5"
+
+# Machine learning (for behavioral analysis)
+onnxruntime = { version = "0.0.14", optional = true }
+
+[dev-dependencies]
+proptest = { workspace = true }
+criterion = { workspace = true }
+tokio-test = "0.4"
+
+[features]
+default = ["ml"]
+ml = ["onnxruntime"]
+
+[[bench]]
+name = "risk_assessment"
+harness = false

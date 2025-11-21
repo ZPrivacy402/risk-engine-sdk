@@ -1,0 +1,59 @@
+{
+  "name": "@zprivacy402/sdk",
+  "version": "1.0.0",
+  "description": "TypeScript SDK for ZPrivacy402 Risk Engine with zk-STARK proofs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zprivacy402/risk-engine-sdk",
+    "directory": "bindings/typescript"
+  },
+  "author": "ZPrivacy402 Team <dev@zprivacy402.com>",
+  "license": "MIT",
+  "keywords": [
+    "zprivacy402",
+    "risk-engine",
+    "zk-stark",
+    "solana",
+    "ai-agent",
+    "trustline",
+    "blockchain",
+    "zero-knowledge",
+    "privacy"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "clean": "rimraf dist",
+    "prepublishOnly": "pnpm build"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.87.0",
+    "axios": "^1.6.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.1.0",
+    "rimraf": "^5.0.5",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.3.0"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

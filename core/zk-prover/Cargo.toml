@@ -1,0 +1,46 @@
+[package]
+name = "zprivacy402-zk-prover"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "zk-STARK proof generation and verification for ZPrivacy402"
+
+[dependencies]
+# Workspace dependencies
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+async-trait = { workspace = true }
+
+# zk-STARK dependencies - Winterfell
+winterfell = { workspace = true }
+math = { workspace = true }
+crypto = { workspace = true }
+air = { workspace = true }
+
+# Additional crypto
+sha2 = { workspace = true }
+blake3 = { workspace = true }
+
+# Solana integration
+solana-sdk = { workspace = true }
+anchor-lang = { workspace = true }
+
+# Serialization
+bincode = "1.3"
+hex = "0.4"
+
+[dev-dependencies]
+proptest = { workspace = true }
+criterion = { workspace = true }
+
+[[bench]]
+name = "proof_generation"
+harness = false
